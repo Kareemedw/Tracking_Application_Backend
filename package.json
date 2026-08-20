@@ -1,0 +1,23 @@
+{
+  "name": "tracking_application_backend",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "Kareem Edwards",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "lint": "npx eslint ."
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.1",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.10.2",
+    "eslint-plugin-import": "^2.32.0",
+    "nodemon": "^3.1.14",
+    "prettier": "^2.8.8"
+  }
+}
