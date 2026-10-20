@@ -15,7 +15,7 @@ const sendApplicantEmail = async ({
   }
 
   const { data, error } = await resend.emails.send({
-    from: "Tracking Application <onboarding@resend.dev>",
+    from: "Tracking Application <onboarding@edsintech.com>",
     to: [email.trim()],
     subject: "Your Application Tracking Account",
     html: `
