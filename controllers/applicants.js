@@ -11,10 +11,17 @@ const createApplicant = async (req, res, next) => {
     const { applicationNumber, firstName, lastName, email } = req.body;
 
     const existingApplicant = await Applicant.findOne({ applicationNumber });
+    const normalizedEmail = email.trim().toLowerCase();
 
     if (existingApplicant) {
       return res.status(409).send({
         message: "An applicant with this application number already exists.",
+      });
+    }
+
+    if (typeof email !== "string" || !email.trim()) {
+      return res.status(400).json({
+        message: "Applicant email address is required.",
       });
     }
 
@@ -26,7 +33,7 @@ const createApplicant = async (req, res, next) => {
       applicationNumber,
       firstName,
       lastName,
-      email,
+      email: normalizedEmail,
       password: hashedPassword,
       mustChangePassword: true,
       //createdBy: req.user._id,

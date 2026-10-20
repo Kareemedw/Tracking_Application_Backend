@@ -10,9 +10,13 @@ const sendApplicantEmail = async ({
 }) => {
   const loginUrl = `${process.env.CLIENT_URL}`;
 
+  if (!email || !email.trim()) {
+    throw new Error("Applicant email address is required.");
+  }
+
   const { data, error } = await resend.emails.send({
     from: "Tracking Application <onboarding@resend.dev>",
-    to: email,
+    to: [email.trim()],
     subject: "Your Application Tracking Account",
     html: `
       <h2>Welcome, ${firstName}</h2>
