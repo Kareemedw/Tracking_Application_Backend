@@ -10,12 +10,12 @@ const {
 const auth = require("../middlewares/auth");
 //const requireDepartmentA = require("../middlewares/requireDepartmentA");
 
-router.get("/", /* auth,*/ getApplicants);
+router.get("/", /*auth,*/ getApplicants);
 
-router.get("/:applicantId", /*auth, */ getApplicant);
+router.get("/:applicantId", /*auth,*/ getApplicant);
 
-router.post("/", /*auth, requireDepartmentA,*/ createApplicant);
+router.post("/", /*auth, */ createApplicant);
 
-router.patch("/:applicantId/steps/:stepNumber", /* auth,*/ updateApplicantStep);
+router.patch("/:applicantId/steps/:stepNumber", /*auth,*/ updateApplicantStep);
 
 module.exports = router;

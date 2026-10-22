@@ -15,6 +15,8 @@ console.log(
   process.env.RESEND_API_KEY?.startsWith("re_"),
 );
 
+console.log("JWT secret loaded:", Boolean(process.env.JWT_SECRET));
+
 mongoose
   .connect(process.env.MONGODB_URI)
   .then(() => {
