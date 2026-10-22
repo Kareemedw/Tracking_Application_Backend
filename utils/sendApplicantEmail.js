@@ -8,7 +8,10 @@ const sendApplicantEmail = async ({
   applicationNumber,
   temporaryPassword,
 }) => {
-  const loginUrl = `${process.env.CLIENT_URL}/login`;
+  if (!process.env.CLIENT_URL) {
+    throw new Error("CLIENT_URL is missing");
+  }
+  const loginUrl = `${process.env.CLIENT_URL.replace(/\/$/, "")}/login`;
 
   if (!email || !email.trim()) {
     throw new Error("Applicant email address is required.");
